@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical">
+
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:id="@+id/activity.headerseditactivity.headerlist.namecontainer"
+		android:layout_marginRight="100dp">
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:text="Name:"
+			android:layout_width="45dp"
+			android:id="@+id/activity.headerseditactivity.headerlist.namelabel"
+			android:layout_gravity="center"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:text="Name"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:layout_width="wrap_content"
+			android:id="@+id/activity.headerseditactivity.headerlist.name"
+			android:layout_marginLeft="10dp"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:id="@+id/activity.headerseditactivity.headerlist.valuecontainer"
+		android:layout_below="@id/activity.headerseditactivity.headerlist.namecontainer"
+		android:layout_marginRight="100dp">
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:text="Value:"
+			android:layout_width="45dp"
+			android:id="@+id/activity.headerseditactivity.headerlist.valuelabel"
+			android:layout_gravity="center"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:text="Value"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:layout_width="wrap_content"
+			android:layout_marginLeft="10dp"
+			android:id="@+id/activity.headerseditactivity.headerlist.value"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:orientation="horizontal"
+		android:layout_centerInParent="true"
+		android:layout_alignParentRight="true">
+
+		<ImageButton
+			android:layout_height="50dp"
+			android:layout_width="50dp"
+			android:src="@drawable/ic_content_create"
+			android:adjustViewBounds="true"
+			android:scaleType="centerInside"
+			android:id="@+id/activity.headerseditactivity.headerlist.button.edit"/>
+
+		<ImageButton
+			android:layout_height="50dp"
+			android:layout_width="50dp"
+			android:src="@drawable/ic_action_delete"
+			android:layout_gravity="right"
+			android:adjustViewBounds="true"
+			android:scaleType="centerInside"
+			android:id="@+id/activity.headerseditactivity.headerlist.button.delete"/>
+
+	</LinearLayout>
+
+</RelativeLayout>
+

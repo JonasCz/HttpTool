@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical">
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:text="Response headers:"
+		android:layout_width="wrap_content"
+		android:layout_marginTop="15dp"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"/>
+
+	<ListView
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:layout_marginTop="10dp"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:layout_weight="0.5"
+		android:id="@+id/activity.responseviewactivity.headerlistview"/>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:text="View Response body as:"
+		android:layout_width="wrap_content"
+		android:layout_marginTop="10dp"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"/>
+
+	<Spinner
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:layout_marginTop="10dp"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:id="@+id/activity.responseviewactivity.spinner.viewas"/>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:text="Response body tools:"
+		android:layout_width="wrap_content"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:layout_marginTop="10dp"/>
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="horizontal"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:layout_marginTop="10dp">
+
+		<Button
+			android:layout_height="wrap_content"
+			android:text="Regex extract (Grep)"
+			android:layout_width="wrap_content"
+			android:id="@+id/activity.responseviewactivity.button.tools.regexextract"/>
+
+		<Button
+			android:layout_height="wrap_content"
+			android:text="CSS Selector extract"
+			android:layout_width="wrap_content"
+			android:id="@+id/activity.responseviewactivity.button.tools.cssextract"/>
+
+		<Button
+			android:layout_height="wrap_content"
+			android:text="Truncate"
+			android:layout_width="wrap_content"
+			android:id="@+id/activity.responseviewactivity.button.tools.truncate"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="horizontal"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:layout_marginTop="10dp">
+
+	</LinearLayout>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:text="Response body actions:"
+		android:layout_width="wrap_content"
+		android:layout_marginTop="10dp"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"/>
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="horizontal"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:layout_marginTop="10dp"
+		android:layout_marginBottom="15dp">
+
+		<Button
+			android:layout_height="wrap_content"
+			android:text="View"
+			android:layout_width="wrap_content"
+			android:id="@+id/activity.responseviewactivity.button.actions.view"/>
+
+		<Button
+			android:layout_height="wrap_content"
+			android:text="Save to file (full)"
+			android:layout_width="wrap_content"
+			android:id="@+id/activity.responseviewactivity.button.actions.savefull"/>
+
+		<Button
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="Save to file (extracted text)"
+			android:id="@+id/activity.responseviewactivity.button.actions.saveextracted"/>
+
+		<Button
+			android:layout_height="wrap_content"
+			android:text="Share (as text)"
+			android:layout_width="wrap_content"
+			android:id="@+id/activity.responseviewactivity.button.actions.sharetext"/>
+
+	</LinearLayout>
+
+</LinearLayout>
+

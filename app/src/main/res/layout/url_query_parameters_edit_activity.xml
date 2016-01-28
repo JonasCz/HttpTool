@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+	android:id="@+id/activity.urleditactivity.containerlayout">
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:text="Current Url:"
+		android:layout_width="wrap_content"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:layout_marginTop="15dp"
+		android:layout_marginBottom="10dp"
+		android:id="@+id/activity.urleditactivity.textview.currenturllabel"/>
+
+	<EditText
+		android:layout_height="wrap_content"
+		android:ems="10"
+		android:layout_width="match_parent"
+		android:textStyle="bold"
+		android:id="@+id/activity.urleditactivity.edittext.urlEntryBox"
+		android:layout_marginBottom="15dp"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:inputType="textUri"
+		android:typeface="monospace"/>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:text="Add a path segment:"
+		android:layout_width="wrap_content"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:layout_marginBottom="10dp"/>
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="horizontal"
+		android:id="@+id/activity.urleditactivity.layout.addPathSegment.container"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:layout_marginBottom="15dp">
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:id="@+id/activity.urleditactivity.edittext.addPathSegment.name"
+			android:hint="Path segment (eg. search)"
+			android:layout_weight="1.0"
+			android:textStyle="bold"/>
+
+		<Button
+			android:layout_height="40dp"
+			android:text="Add"
+			android:layout_width="wrap_content"
+			android:id="@+id/activity.urleditactivity.button.addPathSegment.addButton"
+			android:layout_alignParentRight="false"
+			android:layout_below="@id/activity.urleditactivity.layout.addPathSegment.container"
+			android:layout_centerInParent="true"/>
+
+	</LinearLayout>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:text="Add a query parameter:"
+		android:layout_width="wrap_content"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:layout_marginBottom="10dp"/>
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="horizontal"
+		android:id="@+id/activity.urleditactivity.layout.addQueryParameter.container"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:layout_marginBottom="15dp">
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:id="@+id/activity.urleditactivity.edittext.addQueryParamer.name"
+			android:hint="Query parameter name (eg. query)"
+			android:layout_weight="1.0"
+			android:textStyle="bold"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:layout_toRightOf="@id/activity.urleditactivity.edittext.addQueryParamer.name"
+			android:id="@+id/activity.urleditactivity.edittext.addQueryParamer.value"
+			android:hint="Query parameter value (eg. Kittens)"
+			android:layout_weight="1.0"
+			android:textStyle="bold"/>
+
+		<Button
+			android:layout_height="40dp"
+			android:text="Add"
+			android:layout_width="wrap_content"
+			android:id="@+id/activity.urleditactivity.button.addQueryParameter.addButton"
+			android:layout_alignParentRight="false"
+			android:layout_below="@id/activity.urleditactivity.layout.addQueryParameter.container"
+			android:layout_centerInParent="true"/>
+
+	</LinearLayout>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:text="List of query parameters the URL currently has:"
+		android:layout_width="wrap_content"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:layout_marginBottom="10dp"/>
+
+	<ListView
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:id="@+id/activity.urleditactivity.listview.queryParameterList"
+		android:layout_marginRight="15dp"
+		android:layout_marginLeft="15dp"/>
+
+</LinearLayout>
+

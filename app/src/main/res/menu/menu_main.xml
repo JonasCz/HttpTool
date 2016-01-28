@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+	<item android:id="@+id/action_saved_requests"
+		android:icon="@drawable/ic_action_favorite"
+		android:title="Saved HTTP requests"
+		android:showAsAction="ifRoom|withText"/>
+
+	<item android:id="@+id/action_help"
+		android:icon="@drawable/ic_action_help"
+		android:title="Help (Read me!)"
+		android:showAsAction="ifRoom"/>
+
+	<item android:id="@+id/action_settings"
+		android:icon="@drawable/ic_action_settings"
+		android:title="Settings"
+		android:showAsAction="ifRoom" />
+</menu>
+

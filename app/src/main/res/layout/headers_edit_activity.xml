@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+	android:id="@+id/activity.headerseditactivity.containerlayout">
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:text="Add a header to the request; note that some headers (eg. Content-length) may be overwritten / added by the app, depending on the settings"
+		android:layout_width="wrap_content"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:layout_marginBottom="10dp"
+		android:layout_marginTop="15dp"/>
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="horizontal"
+		android:id="@+id/activity.headereditactivity.layout.addHeader.container"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:layout_marginBottom="15dp">
+
+		<AutoCompleteTextView
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:id="@+id/activity.headereditactivity.edittext.addHeader.name"
+			android:hint="Header name (eg. User-Agent)"
+			android:layout_weight="1.0"
+			android:textStyle="bold"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:layout_toRightOf="@id/activity.headereditactivity.edittext.addHeader.name"
+			android:id="@+id/activity.headereditactivity.edittext.addHeader.value"
+			android:hint="Header value (eg. Mozilla)"
+			android:layout_weight="1.0"
+			android:textStyle="bold"/>
+
+		<Button
+			android:layout_height="40dp"
+			android:text="Add"
+			android:layout_width="wrap_content"
+			android:id="@+id/activity.headereditactivity.button.addHeader.addButton"
+			android:layout_alignParentRight="false"
+			android:layout_below="@id/activity.headereditactivity.layout.addHeader.container"
+			android:layout_centerInParent="true"/>
+
+	</LinearLayout>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:text="Added headers:"
+		android:layout_width="wrap_content"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:layout_marginBottom="10dp"/>
+
+	<ListView
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:id="@+id/activity.headereditactivity.listview.headerList"
+		android:layout_marginRight="15dp"
+		android:layout_marginLeft="15dp"/>
+
+</LinearLayout>
+

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:text="Enter URL:"
+		android:layout_width="wrap_content"
+		android:id="@+id/activity.main.text.urlhint"
+		android:layout_marginTop="15dp"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"/>
+
+	<EditText
+		android:layout_height="wrap_content"
+		android:ems="10"
+		android:layout_width="match_parent"
+		android:gravity="top"
+		android:textStyle="bold"
+		android:inputType="textUri"
+		android:id="@+id/activity.main.edittext.urlEntryBox"
+		android:layout_below="@id/activity.main.text.urlhint"
+		android:layout_marginTop="10dp"
+		android:layout_marginRight="15dp"
+		android:layout_marginLeft="15dp"
+		android:hint="Enter URL address (eg. http://example.com)"
+		android:typeface="monospace"/>
+
+	<Button
+		android:layout_height="wrap_content"
+		android:text="Edit URL &amp; Query parameters"
+		android:layout_width="300dp"
+		android:layout_below="@id/activity.main.edittext.urlEntryBox"
+		android:id="@+id/activity.main.button.editQueryParameters"
+		android:layout_marginTop="15dp"
+		android:layout_marginRight="15dp"
+		android:layout_marginLeft="15dp"
+		android:layout_centerInParent="true"/>
+
+	<Button
+		android:layout_height="wrap_content"
+		android:text="Edit Request headers"
+		android:layout_width="300dp"
+		android:layout_below="@id/activity.main.button.editQueryParameters"
+		android:id="@+id/activity.main.button.editRequestHeaders"
+		android:layout_marginTop="15dp"
+		android:layout_marginRight="15dp"
+		android:layout_marginLeft="15dp"
+		android:layout_centerInParent="true"/>
+
+	<Spinner
+		android:layout_height="wrap_content"
+		android:layout_width="300dp"
+		android:id="@+id/activity.main.spinner.selectmethod"
+		android:layout_below="@id/activity.main.button.editRequestHeaders"
+		android:layout_centerInParent="true"
+		android:layout_marginTop="15dp"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"/>
+
+	<Button
+		android:layout_height="wrap_content"
+		android:text="Edit Request body content"
+		android:layout_width="300dp"
+		android:layout_below="@id/activity.main.spinner.selectmethod"
+		android:id="@+id/activity.main.button.editRequestBody"
+		android:layout_marginTop="15dp"
+		android:layout_marginRight="15dp"
+		android:layout_marginLeft="15dp"
+		android:layout_centerInParent="true"/>
+
+	<Button
+		android:layout_height="wrap_content"
+		android:text="Go !"
+		android:layout_width="100dp"
+		android:layout_below="@id/activity.main.button.editRequestBody"
+		android:layout_centerHorizontal="true"
+		android:layout_marginTop="15dp"
+		android:id="@+id/activity.main.button.goButton"
+		android:textStyle="bold"/>
+
+</RelativeLayout>
+
