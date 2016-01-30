@@ -11,7 +11,8 @@
 		android:id="@+id/activity.main.text.urlhint"
 		android:layout_marginTop="15dp"
 		android:layout_marginLeft="15dp"
-		android:layout_marginRight="15dp"/>
+		android:layout_marginRight="15dp"
+		android:textSize="16sp"/>
 
 	<EditText
 		android:layout_height="wrap_content"
@@ -28,58 +29,115 @@
 		android:hint="Enter URL address (eg. http://example.com)"
 		android:typeface="monospace"/>
 
-	<Button
+	<LinearLayout
 		android:layout_height="wrap_content"
-		android:text="Edit URL &amp; Query parameters"
-		android:layout_width="300dp"
+		android:layout_width="match_parent"
+		android:orientation="horizontal"
+		android:id="@+id/activity.main.container.actionscontainer"
 		android:layout_below="@id/activity.main.edittext.urlEntryBox"
-		android:id="@+id/activity.main.button.editQueryParameters"
-		android:layout_marginTop="15dp"
-		android:layout_marginRight="15dp"
-		android:layout_marginLeft="15dp"
-		android:layout_centerInParent="true"/>
+		android:layout_marginTop="15dp">
 
-	<Button
-		android:layout_height="wrap_content"
-		android:text="Edit Request headers"
-		android:layout_width="300dp"
-		android:layout_below="@id/activity.main.button.editQueryParameters"
-		android:id="@+id/activity.main.button.editRequestHeaders"
-		android:layout_marginTop="15dp"
-		android:layout_marginRight="15dp"
-		android:layout_marginLeft="15dp"
-		android:layout_centerInParent="true"/>
+		<LinearLayout
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:orientation="vertical"
+			android:id="@+id/activity.main.container.buttonscontainer"
+			android:layout_marginLeft="15dp"
+			android:layout_marginRight="15dp"
+			android:layout_weight="0.5">
 
-	<Spinner
-		android:layout_height="wrap_content"
-		android:layout_width="300dp"
-		android:id="@+id/activity.main.spinner.selectmethod"
-		android:layout_below="@id/activity.main.button.editRequestHeaders"
+			<Button
+				android:layout_height="wrap_content"
+				android:text="Edit URL &amp; Query parameters"
+				android:layout_width="match_parent"
+				android:id="@+id/activity.main.button.editQueryParameters"/>
+
+			<Button
+				android:layout_height="wrap_content"
+				android:text="Edit Request headers"
+				android:layout_width="match_parent"
+				android:layout_below="@id/activity.main.button.editQueryParameters"
+				android:id="@+id/activity.main.button.editRequestHeaders"
+				android:layout_marginTop="15dp"
+				android:layout_centerInParent="false"/>
+
+			<Button
+				android:layout_height="wrap_content"
+				android:text="Edit Request body content"
+				android:layout_width="match_parent"
+				android:layout_below="@id/activity.main.button.editRequestHeaders"
+				android:id="@+id/activity.main.button.editRequestBody"
+				android:layout_marginTop="15dp"
+				android:layout_centerInParent="false"/>
+
+			<Spinner
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:id="@+id/activity.main.spinner.selectmethod"
+				android:layout_below="@id/activity.main.button.editRequestBody"
+				android:layout_centerInParent="false"
+				android:layout_marginTop="15dp"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:orientation="vertical"
+			android:layout_weight="0.5"
+			android:layout_marginLeft="15dp"
+			android:layout_marginRight="15dp">
+
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:orientation="vertical">
+
+				<CheckBox
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:text="View body directly, skip tools / options screen"
+					android:id="@+id/activity.main.checkbox.openviewerimmediately"/>
+
+				<Spinner
+					android:layout_height="wrap_content"
+					android:layout_width="match_parent"
+					android:layout_marginTop="15dp"
+					android:id="@+id/activity.main.spinner.viewas"/>
+
+			</LinearLayout>
+
+			<Button
+				android:layout_height="wrap_content"
+				android:text="Go !"
+				android:layout_width="match_parent"
+				android:id="@+id/activity.main.button.goButton"
+				android:textStyle="bold"
+				android:layout_marginTop="15dp"/>
+
+			<Button
+				android:layout_height="wrap_content"
+				android:text="Save this request for re-use"
+				android:layout_width="match_parent"
+				android:layout_marginTop="15dp"/>
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+	<TextView
+		android:layout_height="match_parent"
+		android:text="You'll see some tips about how to use this app and how to get the most out of it, as well as useage examples and other helpful stuff here."
+		android:layout_width="match_parent"
 		android:layout_centerInParent="true"
+		android:textSize="18sp"
+		android:layout_marginBottom="15dp"
+		android:id="@+id/activity.main.text.tiptext"
+		android:layout_below="@id/activity.main.container.actionscontainer"
 		android:layout_marginTop="15dp"
-		android:layout_marginLeft="15dp"
-		android:layout_marginRight="15dp"/>
-
-	<Button
-		android:layout_height="wrap_content"
-		android:text="Edit Request body content"
-		android:layout_width="300dp"
-		android:layout_below="@id/activity.main.spinner.selectmethod"
-		android:id="@+id/activity.main.button.editRequestBody"
-		android:layout_marginTop="15dp"
-		android:layout_marginRight="15dp"
-		android:layout_marginLeft="15dp"
-		android:layout_centerInParent="true"/>
-
-	<Button
-		android:layout_height="wrap_content"
-		android:text="Go !"
-		android:layout_width="100dp"
-		android:layout_below="@id/activity.main.button.editRequestBody"
-		android:layout_centerHorizontal="true"
-		android:layout_marginTop="15dp"
-		android:id="@+id/activity.main.button.goButton"
-		android:textStyle="bold"/>
+		android:gravity="center"
+		android:layout_marginRight="100dp"
+		android:layout_marginLeft="100dp"/>
 
 </RelativeLayout>
 

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical">
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:text="Enter a jQuery-style CSS selector to extract elements from the HTML document; see the help for syntax and implementation details."
+		android:layout_width="match_parent"
+		android:layout_marginTop="15dp"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:textSize="16sp"/>
+
+	<EditText
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:layout_marginTop="10dp"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:inputType="textNoSuggestions"
+		android:typeface="monospace"/>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:text="Elements to return:"
+		android:layout_width="match_parent"
+		android:layout_marginTop="15dp"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:textSize="16sp"/>
+
+	<Spinner
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:layout_marginTop="10dp"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"/>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:text="Output type:"
+		android:layout_width="match_parent"
+		android:layout_marginTop="15dp"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:textSize="16sp"/>
+
+	<Spinner
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:layout_marginTop="10dp"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"/>
+
+	<CheckBox
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:text="Format output"
+		android:layout_marginTop="15dp"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"/>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:text="Your CSS selector did not match anything."
+		android:layout_width="wrap_content"
+		android:layout_marginTop="20dp"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:layout_marginBottom="15dp"
+		android:textSize="15sp"/>
+
+</LinearLayout>
+

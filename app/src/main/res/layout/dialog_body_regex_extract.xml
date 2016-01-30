@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical">
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:text="Enter a regex to extract text from the response body with:"
+		android:layout_width="match_parent"
+		android:layout_marginTop="15dp"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:textSize="16sp"
+		android:id="@+id/dialog.extract.regex.regexhinttext"/>
+
+	<EditText
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:layout_marginTop="10dp"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:inputType="textNoSuggestions"
+		android:typeface="monospace"
+		android:id="@+id/dialog.extract.regex.regexentry"/>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:text="Text extraction mode:"
+		android:layout_width="match_parent"
+		android:layout_marginTop="15dp"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:textSize="16sp"/>
+
+	<Spinner
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:layout_marginTop="10dp"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:id="@+id/dialog.extract.regex.spinner.extractionmode"/>
+
+	<CheckBox
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:text="Format output"
+		android:layout_marginTop="15dp"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:textSize="16sp"
+		android:textColor="#2D2D2D"
+		android:id="@+id/dialog.extract.regex.checkbox.formatoutput"/>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:text="Your regex did not match anything."
+		android:layout_width="wrap_content"
+		android:layout_marginTop="20dp"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:layout_marginBottom="15dp"
+		android:textSize="16sp"
+		android:id="@+id/dialog.extract.regex.text.matcheshint"/>
+
+</LinearLayout>
+

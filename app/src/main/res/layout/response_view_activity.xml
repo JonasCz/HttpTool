@@ -11,7 +11,8 @@
 		android:layout_width="wrap_content"
 		android:layout_marginTop="15dp"
 		android:layout_marginLeft="15dp"
-		android:layout_marginRight="15dp"/>
+		android:layout_marginRight="15dp"
+		android:textSize="16sp"/>
 
 	<ListView
 		android:layout_height="wrap_content"
@@ -28,7 +29,8 @@
 		android:layout_width="wrap_content"
 		android:layout_marginTop="10dp"
 		android:layout_marginLeft="15dp"
-		android:layout_marginRight="15dp"/>
+		android:layout_marginRight="15dp"
+		android:textSize="16sp"/>
 
 	<Spinner
 		android:layout_height="wrap_content"
@@ -44,7 +46,8 @@
 		android:layout_width="wrap_content"
 		android:layout_marginLeft="15dp"
 		android:layout_marginRight="15dp"
-		android:layout_marginTop="10dp"/>
+		android:layout_marginTop="10dp"
+		android:textSize="16sp"/>
 
 	<LinearLayout
 		android:layout_height="wrap_content"
@@ -72,15 +75,11 @@
 			android:layout_width="wrap_content"
 			android:id="@+id/activity.responseviewactivity.button.tools.truncate"/>
 
-	</LinearLayout>
-
-	<LinearLayout
-		android:layout_height="wrap_content"
-		android:layout_width="match_parent"
-		android:orientation="horizontal"
-		android:layout_marginLeft="15dp"
-		android:layout_marginRight="15dp"
-		android:layout_marginTop="10dp">
+		<Button
+			android:layout_height="wrap_content"
+			android:text="Deminify / Unpack / Format"
+			android:layout_width="wrap_content"
+			android:id="@+id/activity.responseviewactivity.button.tools.deminify"/>
 
 	</LinearLayout>
 
@@ -90,7 +89,8 @@
 		android:layout_width="wrap_content"
 		android:layout_marginTop="10dp"
 		android:layout_marginLeft="15dp"
-		android:layout_marginRight="15dp"/>
+		android:layout_marginRight="15dp"
+		android:textSize="16sp"/>
 
 	<LinearLayout
 		android:layout_height="wrap_content"
@@ -105,25 +105,26 @@
 			android:layout_height="wrap_content"
 			android:text="View"
 			android:layout_width="wrap_content"
-			android:id="@+id/activity.responseviewactivity.button.actions.view"/>
+			android:id="@+id/activity.responseviewactivity.button.actions.view"
+			android:textStyle="bold"/>
 
 		<Button
 			android:layout_height="wrap_content"
-			android:text="Save to file (full)"
+			android:text="Save to file"
 			android:layout_width="wrap_content"
 			android:id="@+id/activity.responseviewactivity.button.actions.savefull"/>
-
-		<Button
-			android:layout_height="wrap_content"
-			android:layout_width="wrap_content"
-			android:text="Save to file (extracted text)"
-			android:id="@+id/activity.responseviewactivity.button.actions.saveextracted"/>
 
 		<Button
 			android:layout_height="wrap_content"
 			android:text="Share (as text)"
 			android:layout_width="wrap_content"
 			android:id="@+id/activity.responseviewactivity.button.actions.sharetext"/>
+
+		<Button
+			android:layout_height="wrap_content"
+			android:text="Copy to clipboard (as text)"
+			android:layout_width="wrap_content"
+			android:id="@+id/activity.responseviewactivity.button.actions.copyclipboard"/>
 
 	</LinearLayout>
 

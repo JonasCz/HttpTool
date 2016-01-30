@@ -30,6 +30,11 @@ import okhttp3.Response;
 import okhttp3.Headers;
 import android.widget.Toast;
 import android.widget.TextView;
+import jonas.tool.httpRequestCreator.Constants.HelpTipsMessages;
+import java.util.Random;
+import jonas.tool.httpRequestCreator.Constants.ResponseBodyViewTypes;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 
 public class MainActivity extends Activity {
 	private final int ACTIVITY_EDIT_URL_RESULT = 1;
@@ -47,6 +52,8 @@ public class MainActivity extends Activity {
 	public static Request request;
 	public static Response response;
 	public static byte[] responseBodyBytes;
+	public static String responseBodyString;
+	public static String responseBodyStringExtracted;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +64,22 @@ public class MainActivity extends Activity {
 		editBodybutton = (Button) findViewById(R.id.activity_main_button_editRequestBody);
 		goButton = (Button) findViewById(R.id.activity_main_button_goButton);
 		urlHint = (TextView) findViewById(R.id.activity_main_text_urlhint);
+		
+		TextView tipsText = (TextView) findViewById(R.id.activity_main_text_tiptext);
+		tipsText.setText(HelpTipsMessages.MESSAGES[new Random().nextInt(HelpTipsMessages.MESSAGES.length)]);
+		
+		final Spinner bodyViewTypes = (Spinner) findViewById(R.id.activity_main_spinner_viewas);
+		bodyViewTypes.setEnabled(false);
+		bodyViewTypes.setAdapter(new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, ResponseBodyViewTypes.TYPES));
+		
+		CheckBox viewResponseBodyImmediately = (CheckBox) findViewById(R.id.activity_main_checkbox_openviewerimmediately);
+		viewResponseBodyImmediately.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+				@Override
+				public void onCheckedChanged(CompoundButton clicked, boolean checked) {
+					bodyViewTypes.setEnabled(checked);
+				}
+		});
+		
 		
 		Spinner methods = (Spinner) findViewById(R.id.activity_main_spinner_selectmethod);
 		methods.setAdapter(new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, HttpMethods.METHODS));
@@ -189,6 +212,7 @@ public class MainActivity extends Activity {
 				
 				publishProgress("Reading response body...");
 				responseBodyBytes = response.body().bytes();
+				responseBodyString = responseBodyStringExtracted = new String(responseBodyBytes);
 				
 				return "Success";
 			} catch (Exception e) {

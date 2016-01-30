@@ -17,6 +17,10 @@ import android.widget.Spinner;
 import android.widget.ArrayAdapter;
 import jonas.tool.httpRequestCreator.Constants.ResponseBodyViewTypes;
 import android.content.Intent;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import jonas.tool.httpRequestCreator.Util.RegexExtract;
+import jonas.tool.httpRequestCreator.Constants.ResponseBodyRegexExtractTypes;
 
 
 public class ResponseViewActivity extends Activity {
@@ -33,6 +37,32 @@ public class ResponseViewActivity extends Activity {
 		
 		headersList = (ListView) findViewById(R.id.activity_responseviewactivity_headerlistview);
 		createHeaderList();
+		
+		findViewById(R.id.activity_responseviewactivity_button_tools_regexextract).setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View clicked) {
+					AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(ResponseViewActivity.this);
+					View dialogContentView = getLayoutInflater().inflate(R.layout.dialog_body_regex_extract, null);
+					dialogBuilder.setView(dialogContentView);
+					
+					final Spinner extractTypes = (Spinner) dialogContentView.findViewById(R.id.dialog_extract_regex_spinner_extractionmode);
+					extractTypes.setAdapter(new ArrayAdapter(ResponseViewActivity.this, android.R.layout.simple_spinner_dropdown_item, ResponseBodyRegexExtractTypes.TYPES));
+					
+					dialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface d, int i) {
+								d.cancel();
+							}
+					});
+					dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface d, int i) {
+								d.cancel();
+							}
+						});
+					dialogBuilder.create().show();
+				}
+		});
 		
 		findViewById(R.id.activity_responseviewactivity_button_actions_view).setOnClickListener(new View.OnClickListener() {
 				@Override

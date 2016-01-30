@@ -77,10 +77,10 @@ public class RequestHeadersEditActivity extends Activity {
 				finish();
 				break;
 
-			case R.id.action_discard:
-				this.headersBuilder = new Headers.Builder();
-				setResult(Activity.RESULT_CANCELED);
-				finish();
+//			case R.id.action_discard:
+//				this.headersBuilder = new Headers.Builder();
+//				setResult(Activity.RESULT_CANCELED);
+//				finish();
 		}
 		return super.onOptionsItemSelected(item);
 	}

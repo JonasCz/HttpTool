@@ -1,12 +1,15 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >	
-	<item android:id="@+id/action_discard"
-		android:icon="@drawable/ic_action_discard"
-		android:title="Discard Changes"
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+	<item android:id="@+id/action_undo"
+		android:title="Undo"
+		android:showAsAction="always|withText"/>
+	
+	<item android:id="@+id/action_redo"
+		android:title="Redo"
 		android:showAsAction="always|withText"/>
 	
 	<item android:id="@+id/action_done"
 		android:icon="@drawable/ic_action_done"
-		android:title="Done (Keep Changes)"
+		android:title="Done"
 		android:showAsAction="always|withText"/>
 	
 	<item android:id="@+id/action_help"

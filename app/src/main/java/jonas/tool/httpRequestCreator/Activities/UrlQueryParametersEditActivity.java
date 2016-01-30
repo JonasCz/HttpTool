@@ -27,18 +27,18 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
+import jonas.tool.httpRequestCreator.Util.UndoHistoryStack;
 
 public class UrlQueryParametersEditActivity extends Activity {
 	private EditText urlEntry;
-	
 	private EditText addPathSegment;
-	
 	private EditText addQueryParameterName;
 	private EditText addQueryParameterValue;
-	
 	private ListView queryParameterList;
 	
-	private HttpUrl currentUrl;
+	private Menu menu;
+	
+	private UndoHistoryStack<HttpUrl> undoHistory;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +53,8 @@ public class UrlQueryParametersEditActivity extends Activity {
 		findViewById(R.id.activity_urleditactivity_button_addPathSegment_addButton).setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View clicked) {
-					currentUrl = currentUrl.newBuilder().addPathSegment(addPathSegment.getText().toString()).build();
-					urlEntry.setText(currentUrl.toString());
+					undoHistory.setCurrent(undoHistory.getCurrent().newBuilder().addPathSegment(addPathSegment.getText().toString()).build());
+					urlEntry.setText(undoHistory.getCurrent().toString());
 
 					addPathSegment.getText().clear();
 				}		
@@ -66,18 +66,32 @@ public class UrlQueryParametersEditActivity extends Activity {
 		findViewById(R.id.activity_urleditactivity_button_addQueryParameter_addButton).setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View clicked) {
-					if (currentUrl.queryParameter(addQueryParameterName.getText().toString()) != null){
+					if (undoHistory.getCurrent().queryParameter(addQueryParameterName.getText().toString()) != null){
 						Toast.makeText(UrlQueryParametersEditActivity.this, "Duplicate query parameters are not supported, the URL already has the query parameter \"" + addQueryParameterName.getText().toString() +"\".", Toast.LENGTH_LONG).show();
 						return;
 					}
-					currentUrl = currentUrl.newBuilder().addQueryParameter(addQueryParameterName.getText().toString(), addQueryParameterValue.getText().toString()).build();
+					undoHistory.setCurrent(undoHistory.getCurrent().newBuilder().addQueryParameter(addQueryParameterName.getText().toString(), addQueryParameterValue.getText().toString()).build());
 					createQueryParameterList();
-					urlEntry.setText(currentUrl.toString());
+					urlEntry.setText(undoHistory.getCurrent().toString());
 					
 					addQueryParameterName.getText().clear();
 					addQueryParameterValue.getText().clear();
 				}		
 			});
+			
+		urlEntry.setText(getIntent().getStringExtra(Intent.EXTRA_TEXT));
+		undoHistory = new UndoHistoryStack<HttpUrl>(HttpUrl.parse(urlEntry.getText().toString()), new UndoHistoryStack.OnChangeListener() {
+			@Override
+			public void onChange() {
+				setMenuItemsState();
+			}
+		});
+		
+		if (undoHistory.getCurrent() == null) {
+			showInvalidUrlMessage();
+		} else {
+			createQueryParameterList();
+		}
 			
 		urlEntry.addTextChangedListener(new TextWatcher() {
 				@Override
@@ -91,30 +105,20 @@ public class UrlQueryParametersEditActivity extends Activity {
 					if (HttpUrl.parse(newText.toString()) == null) {
 						showInvalidUrlMessage();
 					} else {
-						currentUrl = HttpUrl.parse(newText.toString());
+						undoHistory.setCurrent(HttpUrl.parse(newText.toString()));
 						hideInvalidUrlMessage();
 						createQueryParameterList();
 					}
-					
 				}
-				
-			
 		});
-		
-		urlEntry.setText(getIntent().getStringExtra(Intent.EXTRA_TEXT));
-		currentUrl = HttpUrl.parse(urlEntry.getText().toString());
-		
-		if (currentUrl == null) {
-			showInvalidUrlMessage();
-		} else {
-			createQueryParameterList();
-		}
 	}
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.menu_edit, menu);
+		this.menu = menu;
+		setMenuItemsState();
 		return super.onCreateOptionsMenu(menu);
 	}
 
@@ -127,21 +131,34 @@ public class UrlQueryParametersEditActivity extends Activity {
 				setResult(Activity.RESULT_OK, i);
 				finish();
 				break;
-			
-			case R.id.action_discard:
-				setResult(Activity.RESULT_CANCELED);
-				finish();
+			case R.id.action_undo:
+				if (undoHistory.undo().getCurrent() == null) {
+					showInvalidUrlMessage();
+				} else {
+					urlEntry.setText(undoHistory.getCurrent().toString());
+					hideInvalidUrlMessage();
+					createQueryParameterList();
+				}
+				break;
+			case R.id.action_redo:
+				
+				
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	private void setMenuItemsState () {
+		menu.findItem(R.id.action_undo).setEnabled(undoHistory.canUndo());
+		menu.findItem(R.id.action_redo).setEnabled(undoHistory.canRedo());
 	}
 	
 	private void createQueryParameterList () {
 		List<Map<String, String>> items = new ArrayList<Map<String, String>>();
 		
-		for (String queryParameterName : currentUrl.queryParameterNames()) {
+		for (String queryParameterName : undoHistory.getCurrent().queryParameterNames()) {
 			Map<String, String> map = new HashMap<String, String>();
 			map.put("name", queryParameterName);
-			map.put("value", currentUrl.queryParameter(queryParameterName));
+			map.put("value", undoHistory.getCurrent().queryParameter(queryParameterName));
 			items.add(map);
 		}
 		ListAdapter adapter = new ListItemsAdapter(this, items, R.layout.url_query_parameters_listitem, new String[] {"name", "value"}, new int[] {R.id.activity_urleditactivity_queryparameterlist_name, R.id.activity_urleditactivity_queryparameterlist_value});
@@ -162,10 +179,10 @@ public class UrlQueryParametersEditActivity extends Activity {
 			editButton.setOnClickListener(new View.OnClickListener() {
 					@Override
 					public void onClick(View clicked) {
-						addQueryParameterName.setText(currentUrl.queryParameterName(clicked.getTag()));
-						addQueryParameterValue.setText(currentUrl.queryParameter(currentUrl.queryParameterName(clicked.getTag())));
-						currentUrl = currentUrl.newBuilder().removeAllQueryParameters(currentUrl.queryParameterName(clicked.getTag())).build();
-						urlEntry.setText(currentUrl.toString());
+						addQueryParameterName.setText(undoHistory.getCurrent().queryParameterName(clicked.getTag()));
+						addQueryParameterValue.setText(undoHistory.getCurrent().queryParameter(undoHistory.getCurrent().queryParameterName(clicked.getTag())));
+						undoHistory.setCurrent(undoHistory.getCurrent().newBuilder().removeAllQueryParameters(undoHistory.getCurrent().queryParameterName(clicked.getTag())).build());
+						urlEntry.setText(undoHistory.getCurrent().toString());
 						createQueryParameterList();
 					}
 			});
@@ -175,8 +192,8 @@ public class UrlQueryParametersEditActivity extends Activity {
 			deleteButton.setOnClickListener(new View.OnClickListener() {
 					@Override
 					public void onClick(View clicked) {
-						currentUrl = currentUrl.newBuilder().removeAllQueryParameters(currentUrl.queryParameterName(clicked.getTag())).build();
-						urlEntry.setText(currentUrl.toString());
+						undoHistory.setCurrent(undoHistory.getCurrent().newBuilder().removeAllQueryParameters(undoHistory.getCurrent().queryParameterName(clicked.getTag())).build());
+						urlEntry.setText(undoHistory.getCurrent().toString());
 						createQueryParameterList();
 					}
 				});
