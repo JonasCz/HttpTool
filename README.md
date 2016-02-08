@@ -2,17 +2,21 @@
 
 ##What is it ?
 
-It's a tool which allows you to create custom HTTP requests, allows easy edition of the URL & its query parameters, allows the addition of custom request headers and request body content, and allows viewing of the response, manipulation (Such as extracting content from HTML with a Jquery-Style CSS selector or a regex,), either as HTML, raw text, or code, a well as saving to file. **Note that it's woefully incomplete, and most stuff does not work yet.**
+It's a tool which allows you to create custom HTTP requests, allows easy edition of the URL & its query parameters, allows the addition of custom request headers and request body content, and allows viewing of the response, manipulation (Such as extracting content from HTML with a JQuery-Style CSS selector or a regex,), either as HTML, raw text, or code, a well as saving to file. **Note that it's woefully incomplete, and most stuff does not work yet.**
 
 ##What's it for ?
 
 You can:
 
-* Build and test web scrapers, as it let's you download HTML pages and run CSS selectors or regexes on them.
+* Build and test web scrapers, as it lets you download HTML pages and run CSS selectors or regexes on them.
 
 * Test REST APIs
 
-* A ton of other stuff, whatever you an think of :-)
+* View the source HTML of webpages, JavaScript, and CSS files - there's a code formatter / prettyprinter built in (based on Google code prettify), as well a deminifier (both not really complete or working yet though)
+
+* Automate things, such as logging into a website and fetching a specific piece of information.
+
+* A ton of other stuff, whatever you can think of :-)
 
 ## Features
 
@@ -26,9 +30,9 @@ You can:
 
 * View the response body as plaintext, rendered / formatted HTML, prettified code, and other options.
 
-* Extract text and HTML from the response body text (If it's HTML) using a Jquery style CSS selector (Uses Jsoup under the hood).
+* Extract text and HTML from the response body text (If it's HTML) using a JQuery style CSS selector (Uses Jsoup under the hood).
 
-###What doesn't work yet and needs implemented:
+###What doesn't work yet and needs to be implemented:
 
 * UI is big, and only suitable for tablets
 
@@ -36,21 +40,23 @@ You can:
 
 * Regex extract and truncate the response body feature
 
-* Most of the other options for viewing / modifying / saving the response.
+* Some of the other options for viewing / modifying / saving the response.
 
 * Help is missing
 
-* Settings / Options
+* Settings / Options is missing
 
-* Lots of UI control don't do anything yet.
+* Lots of UI controls don't do anything yet.
 
 * Loading webpages and intercepting / viewing assets and ajax requests they make.
 
 * A whole lot of other stuff.
 
+* (Code is somewhat messy and needs some refactoring.)
+
 ##Compiling:
 
-Just import the project into android studio and hit "Run". Uses Jsoup and OkHttp as dependencies, android studio will fetch them automatically.
+Just import the project into Android Studio and hit "Run". Uses Jsoup and OkHttp as dependencies, Android Studio will fetch them automatically.
 
 If you can help improving / completing it, please do !
 
@@ -61,11 +67,11 @@ If you can help improving / completing it, please do !
 ***
 
 #### URL & query parameter editor:
-![List layout](https://raw.githubusercontent.com/JonasCz/HttpTool/master/screenshots/URL.pmg)
+![URL editor](https://raw.githubusercontent.com/JonasCz/HttpTool/master/screenshots/url.png)
 ***
 
 #### Dialog to extract text from the response with a CSS selector:
-![Viewer](https://raw.githubusercontent.com/JonasCz/HttpTool/master/screenshots/cssextract.png)
+![CSS extract dialog](https://raw.githubusercontent.com/JonasCz/HttpTool/master/screenshots/cssextract.png)
 ***
 
 More screenshots can be found in the [screenshots directory](https://github.com/JonasCz/HttpTool/master/screenshots/).
