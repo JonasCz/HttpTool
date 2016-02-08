@@ -5,13 +5,10 @@ public class ResponseBodyCssSelectorOptions {
 		"All",
 		"First",
 		"Last",
-		"Nth...",
 	};
 	
 	public static final String[] OUPUT_OPTIONS = {
-		"Inner element(s) text",
-		"Outer HTML",
-		"Attribute value...",
-		"Nth...",
+		"Inner element(s) text, strip HTML tags",
+		"Complete HTML",
 	};
 }

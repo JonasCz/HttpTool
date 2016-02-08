@@ -5,29 +5,50 @@
 	android:layout_height="fill_parent"
 	android:orientation="vertical">
 
-	<TextView
+	<RelativeLayout
 		android:layout_height="wrap_content"
-		android:text="Response headers:"
-		android:layout_width="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="horizontal"
+		android:layout_marginLeft="15dp"
 		android:layout_marginTop="15dp"
-		android:layout_marginLeft="15dp"
-		android:layout_marginRight="15dp"
-		android:textSize="16sp"/>
+		android:layout_marginRight="15dp">
 
-	<ListView
-		android:layout_height="wrap_content"
-		android:layout_width="wrap_content"
-		android:layout_marginTop="10dp"
-		android:layout_marginLeft="15dp"
-		android:layout_marginRight="15dp"
-		android:layout_weight="0.5"
-		android:id="@+id/activity.responseviewactivity.headerlistview"/>
+		<LinearLayout
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:orientation="vertical">
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:text="Response headers:"
+				android:layout_width="wrap_content"
+				android:textSize="16sp"/>
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:text="No further info."
+				android:layout_width="wrap_content"
+				android:id="@+id/activity.responseviewactivity.text.headersinfo"
+				android:maxLines="1"/>
+
+		</LinearLayout>
+
+		<Button
+			android:layout_height="wrap_content"
+			android:text="View Response Headers"
+			android:layout_width="wrap_content"
+			android:layout_gravity="right"
+			android:layout_alignParentRight="true"
+			android:id="@+id/activity.responseviewactivity.button.viewheaders"
+			android:textStyle="bold"/>
+
+	</RelativeLayout>
 
 	<TextView
 		android:layout_height="wrap_content"
 		android:text="View Response body as:"
 		android:layout_width="wrap_content"
-		android:layout_marginTop="10dp"
+		android:layout_marginTop="15dp"
 		android:layout_marginLeft="15dp"
 		android:layout_marginRight="15dp"
 		android:textSize="16sp"/>
@@ -46,7 +67,7 @@
 		android:layout_width="wrap_content"
 		android:layout_marginLeft="15dp"
 		android:layout_marginRight="15dp"
-		android:layout_marginTop="10dp"
+		android:layout_marginTop="15dp"
 		android:textSize="16sp"/>
 
 	<LinearLayout
@@ -87,7 +108,7 @@
 		android:layout_height="wrap_content"
 		android:text="Response body actions:"
 		android:layout_width="wrap_content"
-		android:layout_marginTop="10dp"
+		android:layout_marginTop="15dp"
 		android:layout_marginLeft="15dp"
 		android:layout_marginRight="15dp"
 		android:textSize="16sp"/>

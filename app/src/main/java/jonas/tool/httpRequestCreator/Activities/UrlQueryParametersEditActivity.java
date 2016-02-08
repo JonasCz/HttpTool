@@ -131,16 +131,10 @@ public class UrlQueryParametersEditActivity extends Activity {
 				setResult(Activity.RESULT_OK, i);
 				finish();
 				break;
-			case R.id.action_undo:
-				if (undoHistory.undo().getCurrent() == null) {
-					showInvalidUrlMessage();
-				} else {
-					urlEntry.setText(undoHistory.getCurrent().toString());
-					hideInvalidUrlMessage();
-					createQueryParameterList();
-				}
-				break;
-			case R.id.action_redo:
+				
+			case R.id.action_discard:
+				setResult(Activity.RESULT_CANCELED);
+				finish();
 				
 				
 		}
@@ -148,8 +142,7 @@ public class UrlQueryParametersEditActivity extends Activity {
 	}
 	
 	private void setMenuItemsState () {
-		menu.findItem(R.id.action_undo).setEnabled(undoHistory.canUndo());
-		menu.findItem(R.id.action_redo).setEnabled(undoHistory.canRedo());
+		//do nothing for now
 	}
 	
 	private void createQueryParameterList () {

@@ -12,7 +12,8 @@
 		android:layout_marginTop="15dp"
 		android:layout_marginLeft="15dp"
 		android:layout_marginRight="15dp"
-		android:textSize="16sp"/>
+		android:textSize="16sp"
+		android:id="@+id/dialog.extract.css.selectorentryhint"/>
 
 	<EditText
 		android:layout_height="wrap_content"
@@ -21,7 +22,8 @@
 		android:layout_marginLeft="15dp"
 		android:layout_marginRight="15dp"
 		android:inputType="textNoSuggestions"
-		android:typeface="monospace"/>
+		android:typeface="monospace"
+		android:id="@+id/dialog.extract.css.selectorentrybox"/>
 
 	<TextView
 		android:layout_height="wrap_content"
@@ -37,7 +39,8 @@
 		android:layout_width="match_parent"
 		android:layout_marginTop="10dp"
 		android:layout_marginLeft="15dp"
-		android:layout_marginRight="15dp"/>
+		android:layout_marginRight="15dp"
+		android:id="@+id/dialog.extract.css.spinner.elementstoreturn"/>
 
 	<TextView
 		android:layout_height="wrap_content"
@@ -53,15 +56,8 @@
 		android:layout_width="match_parent"
 		android:layout_marginTop="10dp"
 		android:layout_marginLeft="15dp"
-		android:layout_marginRight="15dp"/>
-
-	<CheckBox
-		android:layout_height="wrap_content"
-		android:layout_width="match_parent"
-		android:text="Format output"
-		android:layout_marginTop="15dp"
-		android:layout_marginLeft="15dp"
-		android:layout_marginRight="15dp"/>
+		android:layout_marginRight="15dp"
+		android:id="@+id/dialog.extract.css.spinner.outputtype"/>
 
 	<TextView
 		android:layout_height="wrap_content"

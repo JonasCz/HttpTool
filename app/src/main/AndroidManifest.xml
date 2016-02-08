@@ -13,7 +13,7 @@
         <activity
             android:name=".Activities.MainActivity"
             android:label="@string/app_name" 
-			android:windowSoftInputMode="stateHidden">
+			android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -36,6 +36,11 @@
         </activity>
 		<activity
             android:name=".Activities.ResponseViewActivity"
+            android:label="@string/app_name"
+			android:windowSoftInputMode="stateHidden">
+        </activity>
+		<activity
+            android:name=".Activities.ResponseHeadersViewActivity"
             android:label="@string/app_name"
 			android:windowSoftInputMode="stateHidden">
         </activity>
